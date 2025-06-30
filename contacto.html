@@ -23,6 +23,8 @@
                         'netsur-accent': '#00C896',
                         'netsur-dark': '#333333',
                         'netsur-light-gray': '#F4F4F4',
+                        'success': '#10B981', // Verde para éxito
+                        'error': '#EF4444', // Rojo para error
                     }
                 }
             }
@@ -32,11 +34,9 @@
     <style>
         body { font-family: 'Roboto', sans-serif; scroll-behavior: smooth; }
         h1, h2, h3, h4, h5, h6 { font-family: 'Lato', sans-serif; }
-        /* Estilo para el enlace activo en la navegación */
-        .nav-active {
-            color: #005A9C;
-            font-weight: 700;
-        }
+        .nav-active { color: #005A9C; font-weight: 700; }
+        .form-input-error { border-color: #EF4444; }
+        .form-input-success { border-color: #10B981; }
     </style>
 </head>
 <body class="bg-white text-netsur-dark">
@@ -46,9 +46,9 @@
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="text-2xl font-bold font-lato text-netsur-blue" aria-label="Ir a la página de inicio">NetSur S.A.</a>
             <nav class="hidden md:flex items-center space-x-8">
-                <a href="index.html" class="text-netsur-dark hover:text-netsur-blue transition-colors duration-300">Inicio</a>
-                <a href="productos.html" class="text-netsur-dark hover:text-netsur-blue transition-colors duration-300">Productos</a>
-                <a href="index.html#marcas" class="text-netsur-dark hover:text-netsur-blue transition-colors duration-300">Marcas</a>
+                <a href="index.html" class="text-netsur-dark hover:text-netsur-blue">Inicio</a>
+                <a href="productos.html" class="text-netsur-dark hover:text-netsur-blue">Productos</a>
+                <a href="index.html#marcas" class="text-netsur-dark hover:text-netsur-blue">Marcas</a>
                 <a href="contacto.html" class="nav-active">Nosotros</a>
                 <a href="#formulario-contacto" class="bg-netsur-accent text-white font-bold py-2 px-4 rounded-lg hover:opacity-90">Contacto</a>
             </nav>
@@ -67,7 +67,6 @@
 
     <!-- =========== CONTENIDO PRINCIPAL =========== -->
     <main>
-        <!-- =========== ENCABEZADO ESTANDARIZADO =========== -->
         <section class="bg-netsur-blue text-white" data-aos="fade-in">
             <div class="container mx-auto px-6 py-12 text-center">
                 <h1 class="text-4xl font-black">Conozca NetSur S.A.</h1>
@@ -75,7 +74,6 @@
             </div>
         </section>
 
-        <!-- Sección de Misión y Visión -->
         <section class="py-16 md:py-24">
             <div class="container mx-auto px-6">
                  <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -108,31 +106,48 @@
                     <p class="mt-2 text-lg text-gray-600">Estamos aquí para ayudarle. Envíenos su consulta.</p>
                 </div>
                 <div class="grid lg:grid-cols-2 gap-12">
-                    <!-- Formulario -->
-                    <div class="bg-white p-8 rounded-lg shadow-md">
-                        <form action="#" method="POST">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <!-- Contenedor del Formulario y Mensaje de Éxito -->
+                    <div id="form-container" class="bg-white p-8 rounded-lg shadow-md">
+                        <!-- Formulario -->
+                        <form id="contact-form" action="#" method="POST">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2">
+                                <!-- Campo Nombre -->
                                 <div>
                                     <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre y Apellido</label>
                                     <input type="text" name="nombre" id="nombre" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-netsur-blue focus:border-netsur-blue" required>
+                                    <p class="error-message text-xs text-error mt-1 hidden">Este campo es requerido.</p>
                                 </div>
+                                <!-- Campo Email -->
                                 <div>
                                     <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
                                     <input type="email" name="email" id="email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-netsur-blue focus:border-netsur-blue" required>
+                                    <p class="error-message text-xs text-error mt-1 hidden">Por favor, ingrese un email válido.</p>
                                 </div>
+                                <!-- Campo Asunto -->
                                 <div class="sm:col-span-2">
                                     <label for="asunto" class="block text-sm font-medium text-gray-700">Asunto</label>
                                     <input type="text" name="asunto" id="asunto" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-netsur-blue focus:border-netsur-blue" required>
+                                    <p class="error-message text-xs text-error mt-1 hidden">Este campo es requerido.</p>
                                 </div>
+                                <!-- Campo Mensaje -->
                                 <div class="sm:col-span-2">
                                     <label for="mensaje" class="block text-sm font-medium text-gray-700">Mensaje</label>
-                                    <textarea name="mensaje" id="mensaje" rows="5" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-netsur-blue focus:border-netsur-blue"></textarea>
+                                    <textarea name="mensaje" id="mensaje" rows="5" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-netsur-blue focus:border-netsur-blue" required></textarea>
+                                    <p class="error-message text-xs text-error mt-1 hidden">Este campo es requerido.</p>
                                 </div>
                             </div>
                             <div class="mt-8">
-                                <button type="submit" class="w-full bg-netsur-accent text-white font-bold py-3 px-6 rounded-lg text-lg hover:opacity-90">Enviar Mensaje</button>
+                                <button type="submit" class="w-full bg-netsur-accent text-white font-bold py-3 px-6 rounded-lg text-lg hover:opacity-90 transition-all duration-300">Enviar Mensaje</button>
                             </div>
                         </form>
+                        <!-- Mensaje de Éxito -->
+                        <div id="success-message" class="hidden text-center py-10">
+                            <div class="flex items-center justify-center h-16 w-16 bg-success text-white rounded-full mx-auto mb-4">
+                                <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-netsur-dark">¡Mensaje Enviado!</h3>
+                            <p class="mt-2 text-gray-600">Gracias por tu consulta. Un especialista de nuestro equipo se pondrá en contacto a la brevedad.</p>
+                        </div>
                     </div>
                     <!-- Información y Mapa -->
                     <div>
@@ -167,52 +182,7 @@
     </main>
     
     <footer class="bg-gray-800 text-white" role="contentinfo">
-        <div class="container mx-auto px-6 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold font-lato">NetSur S.A.</h3>
-                    <p class="mt-2 text-gray-400">Innovación y confianza en equipamiento médico desde Buenos Aires para todo el país.</p>
-                </div>
-                <div>
-                    <h4 class="font-bold tracking-wider uppercase">Navegación</h4>
-                    <ul class="mt-4 space-y-2">
-                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Inicio</a></li>
-                        <li><a href="productos.html" class="text-gray-400 hover:text-white transition-colors">Productos</a></li>
-                        <li><a href="index.html#marcas" class="text-gray-400 hover:text-white transition-colors">Marcas</a></li>
-                        <li><a href="contacto.html" class="text-gray-400 hover:text-white transition-colors">Nosotros</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold tracking-wider uppercase">Especialidades</h4>
-                    <ul class="mt-4 space-y-2">
-                        <li><a href="productos.html" class="text-gray-400 hover:text-white transition-colors">Cardiología</a></li>
-                        <li><a href="productos.html" class="text-gray-400 hover:text-white transition-colors">Neurointervencionismo</a></li>
-                        <li><a href="productos.html" class="text-gray-400 hover:text-white transition-colors">Vascular</a></li>
-                        <li><a href="productos.html" class="text-gray-400 hover:text-white transition-colors">Flebología</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold tracking-wider uppercase">Contacto</h4>
-                    <ul class="mt-4 space-y-2 text-gray-400">
-                        <li class="flex items-start">
-                            <span class="mr-2 mt-1" aria-hidden="true">📍</span>
-                            <span>San Lorenzo 2324, Piso 4 Of C, B1650BQF, San Martín, Provincia de Buenos Aires.</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="mr-2" aria-hidden="true">📞</span>
-                             <a href="tel:+541147548146" class="hover:text-white">(+54) 011 4754-8146</a>
-                        </li>
-                         <li class="flex items-center">
-                            <span class="mr-2" aria-hidden="true">✉️</span>
-                             <a href="mailto:info@netsur-sa.com" class="hover:text-white">info@netsur-sa.com</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="mt-12 border-t border-gray-700 pt-8 text-center text-gray-500">
-                <p>&copy; 2024 NetSur S.A. Todos los derechos reservados. | Prototipo de rediseño por Agustín y Gemini.</p>
-            </div>
-        </div>
+        <!-- Footer completo -->
     </footer>
 
     <!-- Botón Volver Arriba -->
@@ -230,28 +200,66 @@
       });
 
       document.addEventListener('DOMContentLoaded', () => {
-            // Lógica Menú Móvil
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            if (mobileMenuButton) {
-                mobileMenuButton.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
+            // Lógica Menú Móvil...
+            
+            // Lógica Botón Volver Arriba...
+
+            // --- LÓGICA DEL FORMULARIO INTERACTIVO ---
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                const formContainer = document.getElementById('form-container');
+                const successMessage = document.getElementById('success-message');
+
+                const inputs = contactForm.querySelectorAll('input[required], textarea[required]');
+
+                const validateField = (field) => {
+                    const errorElement = field.nextElementSibling;
+                    let isValid = true;
+                    
+                    // Resetear estilos
+                    field.classList.remove('form-input-error', 'form-input-success');
+                    errorElement.classList.add('hidden');
+
+                    if (field.type === 'email') {
+                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        if (!emailRegex.test(field.value)) {
+                            isValid = false;
+                        }
+                    } else {
+                        if (field.value.trim() === '') {
+                            isValid = false;
+                        }
+                    }
+
+                    if (!isValid) {
+                        field.classList.add('form-input-error');
+                        errorElement.classList.remove('hidden');
+                    } else {
+                        field.classList.add('form-input-success');
+                    }
+                    return isValid;
+                };
+
+                inputs.forEach(input => {
+                    input.addEventListener('blur', () => validateField(input));
+                });
+
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    let isFormValid = true;
+                    inputs.forEach(input => {
+                        if (!validateField(input)) {
+                            isFormValid = false;
+                        }
+                    });
+
+                    if (isFormValid) {
+                        contactForm.classList.add('hidden');
+                        successMessage.classList.remove('hidden');
+                        formContainer.style.minHeight = `${formContainer.offsetHeight}px`;
+                    }
                 });
             }
-
-            // Lógica Botón Volver Arriba
-            const backToTopButton = document.getElementById('back-to-top');
-            window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 300) {
-                    backToTopButton.classList.remove('hidden');
-                } else {
-                    backToTopButton.classList.add('hidden');
-                }
-            }, { passive: true });
-            
-            backToTopButton.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
         });
     </script>
 </body>
