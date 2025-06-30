@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros y Contacto - NetSur S.A.</title>
+    <meta name="description" content="Conozca nuestra misión, visión y póngase en contacto con nuestro equipo de especialistas.">
+    
+    <!-- Tailwind CSS y Google Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- AOS - Librería de Animaciones -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { 'lato': ['Lato', 'sans-serif'], 'roboto': ['Roboto', 'sans-serif'] },
+                    colors: {
+                        'netsur-blue': '#005A9C',
+                        'netsur-accent': '#00C896',
+                        'netsur-dark': '#333333',
+                        'netsur-light-gray': '#F4F4F4',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Roboto', sans-serif; scroll-behavior: smooth; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Lato', sans-serif; }
+        /* Estilo para el enlace activo en la navegación */
+        .nav-active {
+            color: #005A9C;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="bg-white text-netsur-dark">
+
+    <!-- =========== CABECERA (HEADER) =========== -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold font-lato text-netsur-blue" aria-label="Ir a la página de inicio">NetSur S.A.</a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-netsur-dark hover:text-netsur-blue transition-colors duration-300">Inicio</a>
+                <a href="productos.html" class="text-netsur-dark hover:text-netsur-blue transition-colors duration-300">Productos</a>
+                <a href="index.html#marcas" class="text-netsur-dark hover:text-netsur-blue transition-colors duration-300">Marcas</a>
+                <a href="contacto.html" class="nav-active">Nosotros</a>
+                <a href="#formulario-contacto" class="bg-netsur-accent text-white font-bold py-2 px-4 rounded-lg hover:opacity-90">Contacto</a>
+            </nav>
+            <button class="md:hidden" id="mobile-menu-button" aria-label="Abrir menú móvil" aria-expanded="false">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white px-6 pb-4">
+             <a href="index.html" class="block py-2 text-netsur-dark hover:text-netsur-blue">Inicio</a>
+             <a href="productos.html" class="block py-2 text-netsur-dark hover:text-netsur-blue">Productos</a>
+             <a href="index.html#marcas" class="block py-2 text-netsur-dark hover:text-netsur-blue">Marcas</a>
+             <a href="contacto.html" class="block py-2 nav-active">Nosotros</a>
+             <a href="#formulario-contacto" class="block mt-2 text-center bg-netsur-accent text-white font-bold py-2 px-4 rounded-lg">Contacto</a>
+        </div>
+    </header>
+
+    <!-- =========== CONTENIDO PRINCIPAL =========== -->
+    <main>
+        <!-- =========== ENCABEZADO ESTANDARIZADO =========== -->
+        <section class="bg-netsur-blue text-white" data-aos="fade-in">
+            <div class="container mx-auto px-6 py-12 text-center">
+                <h1 class="text-4xl font-black">Conozca NetSur S.A.</h1>
+                <p class="mt-2 text-lg opacity-90 max-w-2xl mx-auto">Somos su socio estratégico en la provisión de tecnología médica de vanguardia.</p>
+            </div>
+        </section>
+
+        <!-- Sección de Misión y Visión -->
+        <section class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                 <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    <div class="order-2 md:order-1" data-aos="fade-right">
+                        <h2 class="text-3xl font-bold text-netsur-dark">Nuestro Compromiso con la Salud</h2>
+                        <p class="mt-4 text-lg text-gray-700">Somos una compañía proveedora de productos médicos de alta calidad internacional, con sede en Buenos Aires. Ofrecemos las soluciones más modernas y seguras a pacientes, centros de atención, profesionales médicos y al Sistema de Salud en general.</p>
+                        <div class="mt-8 space-y-6 bg-netsur-light-gray p-8 rounded-lg">
+                            <div>
+                                <h4 class="font-bold text-xl text-netsur-blue">Nuestra Misión</h4>
+                                <p class="text-gray-600 mt-1">Mejorar la calidad de la atención y el tratamiento a pacientes en nuestro territorio, dándoles acceso a la mejor tecnología internacional.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl text-netsur-blue">Nuestra Visión</h4>
+                                <p class="text-gray-600 mt-1">Ser un aliado del Sistema de Salud, ampliando el acceso de la comunidad a las mejores prácticas médicas y avances tecnológicos.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-1 md:order-2 rounded-lg overflow-hidden" data-aos="fade-left">
+                        <img src="https://images.pexels.com/photos/3825586/pexels-photo-3825586.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Equipo de profesionales médicos colaborando" class="w-full h-full object-cover shadow-xl">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Contacto y Mapa -->
+        <section id="formulario-contacto" class="py-16 md:py-24 bg-netsur-light-gray">
+            <div class="container mx-auto px-6" data-aos="fade-up">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-netsur-blue">Póngase en Contacto</h2>
+                    <p class="mt-2 text-lg text-gray-600">Estamos aquí para ayudarle. Envíenos su consulta.</p>
+                </div>
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <!-- Formulario -->
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <form action="#" method="POST">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre y Apellido</label>
+                                    <input type="text" name="nombre" id="nombre" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-netsur-blue focus:border-netsur-blue" required>
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                                    <input type="email" name="email" id="email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-netsur-blue focus:border-netsur-blue" required>
+                                </div>
+                                <div class="sm:col-span-2">
+                                    <label for="asunto" class="block text-sm font-medium text-gray-700">Asunto</label>
+                                    <input type="text" name="asunto" id="asunto" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-netsur-blue focus:border-netsur-blue" required>
+                                </div>
+                                <div class="sm:col-span-2">
+                                    <label for="mensaje" class="block text-sm font-medium text-gray-700">Mensaje</label>
+                                    <textarea name="mensaje" id="mensaje" rows="5" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-netsur-blue focus:border-netsur-blue"></textarea>
+                                </div>
+                            </div>
+                            <div class="mt-8">
+                                <button type="submit" class="w-full bg-netsur-accent text-white font-bold py-3 px-6 rounded-lg text-lg hover:opacity-90">Enviar Mensaje</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Información y Mapa -->
+                    <div>
+                        <div class="bg-white p-8 rounded-lg shadow-md mb-8">
+                            <h3 class="text-xl font-bold text-netsur-dark mb-4">Información de Contacto</h3>
+                            <ul class="space-y-4 text-gray-700">
+                                <li class="flex items-start"><strong class="w-24 shrink-0">Dirección:</strong> <span>San Lorenzo 2324, Piso 4 Of C, B1650BQF, San Martín, Provincia de Buenos Aires.</span></li>
+                                <li class="flex items-start"><strong class="w-24 shrink-0">Teléfono:</strong> <a href="tel:+541147548146" class="hover:underline">(+54) 011 4754-8146</a></li>
+                                <li class="flex items-start"><strong class="w-24 shrink-0">Email:</strong> <a href="mailto:info@netsur-sa.com" class="hover:underline">info@netsur-sa.com</a></li>
+                                <li class="flex items-start"><strong class="w-24 shrink-0">Horario:</strong> <span>Lunes a Viernes de 9:00 a 17:00 hs.</span></li>
+                            </ul>
+                        </div>
+                        <div class="rounded-lg overflow-hidden shadow-md">
+                           <iframe 
+                                width="100%" 
+                                height="300" 
+                                frameborder="0" 
+                                scrolling="no" 
+                                marginheight="0" 
+                                marginwidth="0" 
+                                src="https://maps.google.com/maps?width=100%25&amp;height=300&amp;hl=es&amp;q=San%20Lorenzo%202324,%20San%20Mart%C3%ADn,%20Buenos%20Aires+(NetSur%20S.A.)&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="bg-gray-800 text-white" role="contentinfo">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold font-lato">NetSur S.A.</h3>
+                    <p class="mt-2 text-gray-400">Innovación y confianza en equipamiento médico desde Buenos Aires para todo el país.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold tracking-wider uppercase">Navegación</h4>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Inicio</a></li>
+                        <li><a href="productos.html" class="text-gray-400 hover:text-white transition-colors">Productos</a></li>
+                        <li><a href="index.html#marcas" class="text-gray-400 hover:text-white transition-colors">Marcas</a></li>
+                        <li><a href="contacto.html" class="text-gray-400 hover:text-white transition-colors">Nosotros</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold tracking-wider uppercase">Especialidades</h4>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="productos.html" class="text-gray-400 hover:text-white transition-colors">Cardiología</a></li>
+                        <li><a href="productos.html" class="text-gray-400 hover:text-white transition-colors">Neurointervencionismo</a></li>
+                        <li><a href="productos.html" class="text-gray-400 hover:text-white transition-colors">Vascular</a></li>
+                        <li><a href="productos.html" class="text-gray-400 hover:text-white transition-colors">Flebología</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold tracking-wider uppercase">Contacto</h4>
+                    <ul class="mt-4 space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <span class="mr-2 mt-1" aria-hidden="true">📍</span>
+                            <span>San Lorenzo 2324, Piso 4 Of C, B1650BQF, San Martín, Provincia de Buenos Aires.</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="mr-2" aria-hidden="true">📞</span>
+                             <a href="tel:+541147548146" class="hover:text-white">(+54) 011 4754-8146</a>
+                        </li>
+                         <li class="flex items-center">
+                            <span class="mr-2" aria-hidden="true">✉️</span>
+                             <a href="mailto:info@netsur-sa.com" class="hover:text-white">info@netsur-sa.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-700 pt-8 text-center text-gray-500">
+                <p>&copy; 2024 NetSur S.A. Todos los derechos reservados. | Prototipo de rediseño por Agustín y Gemini.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón Volver Arriba -->
+    <button id="back-to-top" class="hidden fixed bottom-5 right-5 bg-netsur-blue text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-opacity-80 transition-opacity duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+        </svg>
+    </button>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+          once: true,
+          duration: 800,
+      });
+
+      document.addEventListener('DOMContentLoaded', () => {
+            // Lógica Menú Móvil
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Lógica Botón Volver Arriba
+            const backToTopButton = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.remove('hidden');
+                } else {
+                    backToTopButton.classList.add('hidden');
+                }
+            }, { passive: true });
+            
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>

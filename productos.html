@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - NetSur S.A.</title>
+    <meta name="description" content="Explore nuestro catálogo completo de equipamiento médico de alta complejidad, incluyendo cardiología, neurointervencionismo y más.">
+    
+    <!-- Tailwind CSS y Google Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS - Librería de Animaciones -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { 'lato': ['Lato', 'sans-serif'], 'roboto': ['Roboto', 'sans-serif'] },
+                    colors: {
+                        'netsur-blue': '#005A9C',
+                        'netsur-accent': '#00C896',
+                        'netsur-dark': '#333333',
+                        'netsur-light-gray': '#F4F4F4',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Roboto', sans-serif; scroll-behavior: smooth; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Lato', sans-serif; }
+        .nav-active {
+            color: #005A9C;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="bg-white text-netsur-dark">
+
+    <!-- =========== CABECERA (HEADER) =========== -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold font-lato text-netsur-blue" aria-label="Ir al inicio">NetSur S.A.</a>
+            <nav class="hidden md:flex items-center space-x-8" role="navigation" aria-label="Navegación principal">
+                <a href="index.html" class="text-netsur-dark hover:text-netsur-blue transition-colors duration-300">Inicio</a>
+                <a href="productos.html" class="nav-active">Productos</a>
+                <a href="index.html#marcas" class="text-netsur-dark hover:text-netsur-blue transition-colors duration-300">Marcas</a>
+                <a href="contacto.html" class="text-netsur-dark hover:text-netsur-blue transition-colors duration-300">Nosotros</a>
+                <a href="contacto.html#formulario-contacto" class="bg-netsur-accent text-white font-bold py-2 px-4 rounded-lg hover:opacity-90">Contacto</a>
+            </nav>
+            <button class="md:hidden" id="mobile-menu-button" aria-label="Abrir menú móvil" aria-expanded="false">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white px-6 pb-4" role="navigation" aria-label="Menú móvil">
+            <a href="index.html" class="block py-2 text-netsur-dark hover:text-netsur-blue">Inicio</a>
+            <a href="productos.html" class="block py-2 nav-active">Productos</a>
+            <a href="index.html#marcas" class="block py-2 text-netsur-dark hover:text-netsur-blue">Marcas</a>
+            <a href="contacto.html" class="block py-2 text-netsur-dark hover:text-netsur-blue">Nosotros</a>
+            <a href="contacto.html#formulario-contacto" class="block mt-2 text-center bg-netsur-accent text-white font-bold py-2 px-4 rounded-lg">Contacto</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- =========== ENCABEZADO ESTANDARIZADO =========== -->
+        <section class="bg-netsur-blue text-white" data-aos="fade-in">
+            <div class="container mx-auto px-6 py-12 text-center">
+                <h1 class="text-4xl font-black">Nuestro Catálogo de Productos</h1>
+                <p class="mt-2 text-lg opacity-90 max-w-2xl mx-auto">Encuentre la solución tecnológica precisa para cada especialidad.</p>
+            </div>
+        </section>
+
+        <section class="py-16">
+            <div class="container mx-auto px-6">
+                <div class="mb-12" data-aos="fade-up">
+                    <h3 class="text-xl font-bold mb-4 text-netsur-dark">Filtrar por categoría:</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <button class="filter-btn bg-netsur-blue text-white py-2 px-4 rounded-full text-sm transition-colors duration-300">Todos</button>
+                        <button class="filter-btn bg-white text-netsur-dark border border-gray-300 hover:bg-netsur-light-gray py-2 px-4 rounded-full text-sm transition-colors duration-300" data-category="cardiologia">Cardiología</button>
+                        <button class="filter-btn bg-white text-netsur-dark border border-gray-300 hover:bg-netsur-light-gray py-2 px-4 rounded-full text-sm transition-colors duration-300" data-category="neuro">Neurointervencionismo</button>
+                        <button class="filter-btn bg-white text-netsur-dark border border-gray-300 hover:bg-netsur-light-gray py-2 px-4 rounded-full text-sm transition-colors duration-300" data-category="vascular">Vascular</button>
+                        <button class="filter-btn bg-white text-netsur-dark border border-gray-300 hover:bg-netsur-light-gray py-2 px-4 rounded-full text-sm transition-colors duration-300" data-category="xray">Vestimenta X-Ray</button>
+                    </div>
+                </div>
+
+                <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                    
+                    <div class="product-card" data-category="cardiologia" data-aos="fade-up" data-aos-delay="100">
+                        <div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
+                            <img src="https://images.pexels.com/photos/5452201/pexels-photo-5452201.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Producto de Cardiología" class="w-full h-48 object-cover">
+                            <div class="p-5 flex flex-col flex-grow">
+                                <span class="text-xs font-semibold text-netsur-blue">CARDIOLOGÍA</span>
+                                <h4 class="mt-1 text-lg font-bold text-netsur-dark">Catéter Guía Avanzado</h4>
+                                <p class="mt-2 text-sm text-gray-600 flex-grow">Alta flexibilidad y soporte para procedimientos complejos.</p>
+                                <a href="producto-detalle.html" class="mt-4 inline-block text-netsur-accent font-bold hover:underline self-start">Ver Detalles &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="neuro" data-aos="fade-up" data-aos-delay="200">
+                        <div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
+                             <img src="https://images.pexels.com/photos/7108110/pexels-photo-7108110.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Producto de Neurointervencionismo" class="w-full h-48 object-cover">
+                            <div class="p-5 flex flex-col flex-grow">
+                                <span class="text-xs font-semibold text-netsur-blue">NEUROINTERVENCIONISMO</span>
+                                <h4 class="mt-1 text-lg font-bold text-netsur-dark">Microcatéter de Navegación</h4>
+                                <p class="mt-2 text-sm text-gray-600 flex-grow">Diseño ultra fino para acceso a vasculatura distal.</p>
+                                <a href="producto-detalle.html" class="mt-4 inline-block text-netsur-accent font-bold hover:underline self-start">Ver Detalles &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="xray" data-aos="fade-up" data-aos-delay="300">
+                        <div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
+                             <img src="https://images.pexels.com/photos/7659873/pexels-photo-7659873.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Producto de Vestimenta X-Ray" class="w-full h-48 object-cover">
+                            <div class="p-5 flex flex-col flex-grow">
+                                <span class="text-xs font-semibold text-netsur-blue">VESTIMENTA X-RAY</span>
+                                <h4 class="mt-1 text-lg font-bold text-netsur-dark">Delantal de Plomo Ligero</h4>
+                                <p class="mt-2 text-sm text-gray-600 flex-grow">Máxima protección con un peso reducido para mayor confort.</p>
+                                <a href="producto-detalle.html" class="mt-4 inline-block text-netsur-accent font-bold hover:underline self-start">Ver Detalles &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="vascular" data-aos="fade-up" data-aos-delay="400">
+                        <div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
+                             <img src="https://images.pexels.com/photos/3951615/pexels-photo-3951615.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Producto Vascular" class="w-full h-48 object-cover">
+                            <div class="p-5 flex flex-col flex-grow">
+                                <span class="text-xs font-semibold text-netsur-blue">VASCULAR</span>
+                                <h4 class="mt-1 text-lg font-bold text-netsur-dark">Stent Periférico Autoexpandible</h4>
+                                <p class="mt-2 text-sm text-gray-600 flex-grow">Excelente fuerza radial y flexibilidad para arterias.</p>
+                                <a href="producto-detalle.html" class="mt-4 inline-block text-netsur-accent font-bold hover:underline self-start">Ver Detalles &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========== SECCIÓN DE LLAMADO A LA ACCIÓN (CTA) =========== -->
+        <section class="bg-netsur-blue">
+            <div class="container mx-auto px-6 py-16 text-center text-white" data-aos="zoom-in">
+                <h2 class="text-3xl md:text-4xl font-bold">¿Necesita un producto que no encuentra?</h2>
+                <p class="mt-4 text-lg max-w-2xl mx-auto opacity-90">Nuestro equipo puede conseguir la solución específica que necesita. Póngase en contacto para un asesoramiento personalizado.</p>
+                <a href="contacto.html" class="mt-8 inline-block bg-white text-netsur-blue font-bold py-3 px-8 rounded-lg text-lg hover:bg-netsur-light-gray transition-colors duration-300">
+                    Contactar a un Especialista
+                </a>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="bg-gray-800 text-white" role="contentinfo">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold font-lato">NetSur S.A.</h3>
+                    <p class="mt-2 text-gray-400">Innovación y confianza en equipamiento médico desde Buenos Aires para todo el país.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold tracking-wider uppercase">Navegación</h4>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Inicio</a></li>
+                        <li><a href="productos.html" class="text-gray-400 hover:text-white transition-colors">Productos</a></li>
+                        <li><a href="index.html#marcas" class="text-gray-400 hover:text-white transition-colors">Marcas</a></li>
+                        <li><a href="contacto.html" class="text-gray-400 hover:text-white transition-colors">Nosotros</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold tracking-wider uppercase">Especialidades</h4>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="productos.html" class="text-gray-400 hover:text-white transition-colors">Cardiología</a></li>
+                        <li><a href="productos.html" class="text-gray-400 hover:text-white transition-colors">Neurointervencionismo</a></li>
+                        <li><a href="productos.html" class="text-gray-400 hover:text-white transition-colors">Vascular</a></li>
+                        <li><a href="productos.html" class="text-gray-400 hover:text-white transition-colors">Flebología</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold tracking-wider uppercase">Contacto</h4>
+                    <ul class="mt-4 space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <span class="mr-2 mt-1" aria-hidden="true">📍</span>
+                            <span>San Lorenzo 2324, Piso 4 Of C, B1650BQF, San Martín, Provincia de Buenos Aires.</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="mr-2" aria-hidden="true">📞</span>
+                             <a href="tel:+541147548146" class="hover:text-white">(+54) 011 4754-8146</a>
+                        </li>
+                         <li class="flex items-center">
+                            <span class="mr-2" aria-hidden="true">✉️</span>
+                             <a href="mailto:info@netsur-sa.com" class="hover:text-white">info@netsur-sa.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-700 pt-8 text-center text-gray-500">
+                <p>&copy; 2024 NetSur S.A. Todos los derechos reservados. | Prototipo de rediseño por Agustín y Gemini.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón Volver Arriba -->
+    <button id="back-to-top" class="hidden fixed bottom-5 right-5 bg-netsur-blue text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-opacity-80 transition-opacity duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+        </svg>
+    </button>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Inicializar animaciones
+        AOS.init({
+          once: true,
+          duration: 800,
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const productCards = document.querySelectorAll('.product-card');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('bg-netsur-blue', 'text-white');
+                        btn.classList.add('bg-white', 'text-netsur-dark');
+                    });
+                    button.classList.add('bg-netsur-blue', 'text-white');
+                    button.classList.remove('bg-white', 'text-netsur-dark');
+
+                    const category = button.dataset.category;
+                    productCards.forEach(card => {
+                        if (!category || card.dataset.category === category) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Lógica Botón Volver Arriba
+            const backToTopButton = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.remove('hidden');
+                } else {
+                    backToTopButton.classList.add('hidden');
+                }
+            }, { passive: true });
+            
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Lógica Menú Móvil
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if(mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
