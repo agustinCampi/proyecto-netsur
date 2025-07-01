@@ -1,0 +1,40 @@
+# Nombre de nuestro flujo de trabajo de control de calidad
+name: Lint Code Base
+
+# Define cuándo se ejecutará este inspector
+on:
+  # Se ejecuta cada vez que subís código (push) a la rama principal (main)
+  push:
+    branches: [ "main" ]
+  # También se ejecuta cuando alguien crea una Pull Request hacia la rama main
+  pull_request:
+    branches: [ "main" ]
+
+# Define los trabajos (jobs) que se van a realizar
+jobs:
+  # Nombre del trabajo: "super-lint". Podría ser cualquier nombre.
+  super-lint:
+    # El inspector se ejecutará en una máquina virtual de Ubuntu (es el estándar y más común)
+    runs-on: ubuntu-latest
+    steps:
+      # Paso 1: Descargar una copia de tu código al inspector para que pueda analizarlo.
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          # Necesita el historial completo para comparar los archivos que cambiaron.
+          fetch-depth: 0
+
+      # Paso 2: Ejecutar el Super-Linter, que es la herramienta de GitHub para este trabajo.
+      - name: Lint Code Base
+        uses: github/super-linter@v6
+        env:
+          # Le decimos al linter que NO revise todos los lenguajes, sino solo los que nos interesan.
+          VALIDATE_ALL_CODEBASE: false
+          # Activamos la validación para HTML.
+          VALIDATE_HTML: true
+          # Activamos la validación para CSS.
+          VALIDATE_CSS: true
+          # Activamos la validación para JavaScript.
+          VALIDATE_JAVASCRIPT_ES: true
+          # Esta variable es necesaria para que el linter pueda comunicarse con la API de GitHub.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
