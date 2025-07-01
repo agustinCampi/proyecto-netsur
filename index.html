@@ -46,7 +46,7 @@
         body { font-family: 'Roboto', sans-serif; }
         h1, h2, h3, h4, h5, h6 { font-family: 'Lato', sans-serif; }
         .nav-active {
-            color: #005A9C !important;
+            color: #005A9C;
             font-weight: 700;
         }
     </style>
@@ -77,7 +77,7 @@
         </div>
     </header>
 
-    <main class="pb-20 md:pb-0"> <!-- Padding bottom para que la barra móvil no tape el contenido -->
+    <main>
         <section id="inicio" class="scroll-section relative h-[70vh] min-h-[450px] flex items-center justify-center text-white text-center bg-cover bg-center" style="background-image: url('https://images.pexels.com/photos/2280547/pexels-photo-2280547.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
             <div class="absolute inset-0 bg-black opacity-60"></div>
             <div class="relative z-10 px-6" data-aos="fade-in" data-aos-duration="1500">
@@ -148,7 +148,54 @@
             </div>
         </section>
         
-        <section id="testimonios" class="scroll-section py-16 md:py-24 bg-netsur-light-gray">
+        <section id="faq" class="scroll-section py-16 md:py-24 bg-netsur-light-gray">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-netsur-blue">Preguntas Frecuentes</h2>
+                    <p class="mt-2 text-lg text-gray-600 max-w-2xl mx-auto">Resolvemos algunas de las dudas más comunes de nuestros clientes.</p>
+                </div>
+                <div class="max-w-3xl mx-auto space-y-4" data-aos="fade-up" data-aos-delay="100">
+                    <!-- Pregunta 1 -->
+                    <details class="group bg-white rounded-lg p-6 cursor-pointer shadow-sm">
+                        <summary class="flex items-center justify-between font-bold text-lg text-netsur-dark">
+                            ¿Realizan envíos a todo el país?
+                            <svg class="w-5 h-5 text-netsur-blue shrink-0 transition-transform duration-300 group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </summary>
+                        <div class="faq-answer mt-4 text-gray-700">
+                            <p>Sí, contamos con una red de logística que nos permite realizar envíos a todas las provincias de Argentina, garantizando la entrega en tiempo y forma.</p>
+                        </div>
+                    </details>
+                    <!-- Pregunta 2 -->
+                    <details class="group bg-white rounded-lg p-6 cursor-pointer shadow-sm">
+                        <summary class="flex items-center justify-between font-bold text-lg text-netsur-dark">
+                            ¿Qué garantía tienen los equipos?
+                            <svg class="w-5 h-5 text-netsur-blue shrink-0 transition-transform duration-300 group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </summary>
+                        <div class="faq-answer mt-4 text-gray-700">
+                            <p>Todos nuestros equipos cuentan con la garantía oficial del fabricante y nuestro soporte técnico postventa para asegurar su correcto funcionamiento.</p>
+                        </div>
+                    </details>
+                    <!-- Pregunta 3 -->
+                    <details class="group bg-white rounded-lg p-6 cursor-pointer shadow-sm">
+                        <summary class="flex items-center justify-between font-bold text-lg text-netsur-dark">
+                            ¿Ofrecen soporte y capacitación?
+                            <svg class="w-5 h-5 text-netsur-blue shrink-0 transition-transform duration-300 group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </summary>
+                        <div class="faq-answer mt-4 text-gray-700">
+                           <p>Absolutamente. Brindamos capacitación completa para el personal médico y técnico sobre el uso de nuestros equipos, así como soporte técnico permanente.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonios" class="scroll-section py-16 md:py-24 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12" data-aos="fade-up">
                     <h2 class="text-3xl md:text-4xl font-bold text-netsur-blue">La Voz de Nuestros Clientes</h2>
@@ -156,7 +203,7 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Testimonio 1 -->
-                    <div class="bg-white p-8 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-netsur-light-gray p-8 rounded-lg" data-aos="fade-up" data-aos-delay="100">
                         <div class="text-5xl text-netsur-blue opacity-25 -mb-4">“</div>
                         <p class="text-gray-700 italic">La calidad de los productos y el soporte técnico de NetSur han sido fundamentales para optimizar nuestros procedimientos. Su equipo siempre está dispuesto a colaborar.</p>
                         <div class="mt-6 flex items-center">
@@ -168,7 +215,7 @@
                         </div>
                     </div>
                     <!-- Testimonio 2 -->
-                    <div class="bg-white p-8 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-netsur-light-gray p-8 rounded-lg" data-aos="fade-up" data-aos-delay="200">
                         <div class="text-5xl text-netsur-blue opacity-25 -mb-4">“</div>
                         <p class="text-gray-700 italic">Trabajar con NetSur nos da la tranquilidad de saber que contamos con la tecnología más avanzada del mercado. Su catálogo es de primer nivel.</p>
                         <div class="mt-6 flex items-center">
@@ -180,7 +227,7 @@
                         </div>
                     </div>
                     <!-- Testimonio 3 -->
-                    <div class="bg-white p-8 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-netsur-light-gray p-8 rounded-lg" data-aos="fade-up" data-aos-delay="300">
                         <div class="text-5xl text-netsur-blue opacity-25 -mb-4">“</div>
                         <p class="text-gray-700 italic">La logística y la atención personalizada de NetSur son impecables. Siempre cumplen en tiempo y forma, algo crucial en nuestro sector.</p>
                         <div class="mt-6 flex items-center">
@@ -299,10 +346,13 @@
 
             const makeActive = (links, activeHref) => {
                 links.forEach(link => {
-                    if (link.getAttribute('href') === activeHref) {
+                    const linkHref = link.getAttribute('href');
+                    if (linkHref === activeHref) {
                         link.classList.add('nav-active');
+                        link.classList.remove('text-netsur-dark');
                     } else {
                         link.classList.remove('nav-active');
+                        link.classList.add('text-netsur-dark');
                     }
                 });
             };
@@ -321,6 +371,22 @@
 
             sections.forEach(section => {
                 if(section.id) observer.observe(section);
+            });
+
+            // --- LÓGICA DEL ACORDEÓN DE FAQ ---
+            const details = document.querySelectorAll('details.group');
+            details.forEach(targetDetail => {
+                targetDetail.addEventListener('click', (event) => {
+                    if (targetDetail.hasAttribute('open')) {
+                        // Si se hace clic para cerrar, no hacemos nada extra.
+                        return;
+                    }
+                    details.forEach(detail => {
+                        if (detail !== targetDetail) {
+                            detail.removeAttribute('open');
+                        }
+                    });
+                });
             });
         });
     </script>
